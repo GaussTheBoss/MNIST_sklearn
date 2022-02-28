@@ -19,7 +19,7 @@ def action(datum):
     predicted_probs = model.predict_proba(np.array(datum['array']).ravel().reshape(1,-1)).tolist()[0]
     
     # Add these probabilities to the output
-    datum["predictes_probs"] = predicted_probs
+    datum["predicted_probs"] = predicted_probs
 
     # Add the best possible matching digit to the output
     datum["score"] = np.argmax(predicted_probs)
