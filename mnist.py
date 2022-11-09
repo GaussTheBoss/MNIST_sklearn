@@ -27,4 +27,4 @@ def action(datum):
     # Remove input array from output
     del datum["array"]
     
-    yield datum
+    return datum
