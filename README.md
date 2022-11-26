@@ -1,4 +1,4 @@
-# MNIST_tf
+# MNIST_sklearn
 A sample model to demonstrate multi-class classification using **scikit-learn**. The saved model was trained on the MNIST dataset.
 
 ## Running Locally
