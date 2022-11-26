@@ -1,7 +1,14 @@
 {
-    "tags": [],
-    "name": "MNIST_SKLEARN",
+    "name": "MNIST_skearn",
     "description": "Model to classify handwritten digits",
-    "modelCategory": "BUSINESS_MODEL",
-    "custom": {}
+    "custom": {
+        "requirements": {
+            "matplotlib":"3.6.2",
+            "numpy": "1.23.5",
+            "pandas": "1.5.2",
+            "scikit-learn": "1.1.3",
+            "tensorflow":"2.7.0"
+        },
+        "methodology": "sklearn.svm.SVC"
+    }
 }

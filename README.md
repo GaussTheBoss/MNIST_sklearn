@@ -1,43 +1,45 @@
-# MNIST_sklearn
-A sample model to demonstrate **sklearn** in ModelOp Center. The saved model was trained on the MNIST dataset.
+# MNIST_tf
+A sample model to demonstrate multi-class classification using **scikit-learn**. The saved model was trained on the MNIST dataset.
 
+## Running Locally
+
+To run this model locally, create a new Python 3.8.3 virtual environment
+(such as with `pyenv`). Then, use the following command to update `pip`
+and `setuptools`:
+
+```
+python3 -m pip install --upgrade setuptools
+python3 -m pip install --upgrade pip
+```
+
+And install the required libraries:
+
+```
+python3 -m pip install -r requirements.txt
+```
+
+The main source code is contained in `mnist.py`. To test all code at-once, run
+
+```
+python3 mnist.py
+```
 
 ## Assets
-- `./binaries/sklearn_mnist.pkl` is the trained sklearn model.
+- `./binaries/sklearn_mnist.pkl` is the trained sklearn.svm.SVC model.
 - `input_schema.avsc` and `output_schema.avsc` are AVRO-compliant json files that detail the input and output schema, respectively.
-- The datasets used for **training** (`train.json`) and **testing** (`test.json`) are generated in the attached notebook, and uploaded to S3.
 
-**_NOTE:_**  to generate the datasets **without** running the notebook, simply run the `generate_datasets.py` file (`python3 generate_datasets.py`).
-
-## Scoring Jobs
+## Scoring (Inference) Requests
 
 ### Sample Inputs
 
-Choose `data/sample_input.json` as the input file. The scoring job requires a runtime with **python >= 3.8**.
-
-### Schema Checking
-
-Scoring Jobs can be run with any combination of input/output schema checking.
+Choose `./data/sample_input.json` as the input file.
 
 ### Sample Output
 
-Each output record is a dictionary with 4 keys: `id`, `label`, `predicted_probs` and `score`. Here's an example:
+`./data/sample_output.json` contains the output corrsesding to the input file above. Each line/output record is a dictionary with 2 keys: `predicted_probs` and `score`. Here's an example:
 ```json
 {
-    "id": 0,
-    "label": 5,
-    "predicted_probs": [
-        5.110288345375365e-14,
-        2.8476302912916474e-11,
-        5.987289115015615e-13,
-        0.0003364254371263087,
-        1.5704866054112772e-21,
-        0.9996635913848877,
-        1.036646354694859e-15,
-        9.677076306079113e-14,
-        6.196956061363737e-14,
-        7.691011716381979e-10
-    ],
-    "score": 5
+    "predicted_probs": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0],
+    "score": 7
 }
 ```

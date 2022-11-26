@@ -1,4 +1,4 @@
 .python-version
-data/test.json
-data/train.json
 binaries/uncompressed_sklearn_mnist.pkl
+.vscode/settings.json
+.ipynb_checkpoints/model_trainer-checkpoint.ipynb
